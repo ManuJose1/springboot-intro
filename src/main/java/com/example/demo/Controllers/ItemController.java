@@ -58,4 +58,12 @@ public class ItemController {
         }
         return ResponseEntity.noContent().build();
     }
+
+    //Sum of two numbers
+    @GetMapping("/sum")
+    public ResponseEntity<Integer> sum(@RequestParam int a, @RequestParam int b) {
+        int result = a + b;
+        System.out.println("Sum: " + a + "+" + b + "=" + result);
+        return ResponseEntity.ok(result);
+    }
 }
