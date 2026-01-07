@@ -35,4 +35,9 @@ The technologies used are <b>Java</b>, <b>SpringBoot</b> and <b>Maven</b>
     <td>/api/items/{id}</td>
     <td>Delete an existing item</td>
   </tr>
+  <tr>
+    <td>GET</td>
+    <td>/api/items/sum</td>
+    <td>Adds the two numbers which are passed in as params</td>
+  </tr>
 </table>
