@@ -8,7 +8,9 @@ import java.util.*;
 @Service
 public class ItemService {
 
-    private final Map<Long, Item> items = new HashMap<>();
+    Map<Long, Item> items = new HashMap<>();
+
+
     private long currentId = 1;
 
     public List<Item> getAll() {
@@ -26,7 +28,11 @@ public class ItemService {
     }
 
     public Item update(Long id, Item updatedItem) {
-        if (!items.containsKey(id)) return null;
+        items.put(1L, new Item());
+        if (!items.containsKey(id))
+        {
+            return null;
+        }
         updatedItem.setId(id);
         items.put(id, updatedItem);
         return updatedItem;

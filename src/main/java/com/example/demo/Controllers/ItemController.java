@@ -66,4 +66,14 @@ public class ItemController {
         System.out.println("Sum: " + a + "+" + b + "=" + result);
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("sumandemail")
+    public ResponseEntity<String> sumandemail(@RequestParam int a, @RequestParam int b, @RequestParam String email) {
+        int result = a + b;
+        System.out.println("Sum: " + a + "+" + b + "=" + result);
+        return ResponseEntity.ok("I have sent €" + result + " to this email: " + email);
+    }
+    //             the third should be in email formait
+    //             create a custom validator for email
+    // }
 }
