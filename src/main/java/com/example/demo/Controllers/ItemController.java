@@ -69,11 +69,11 @@ public class ItemController {
 
     @GetMapping("sumandemail")
     public ResponseEntity<String> sumandemail(@RequestParam int a, @RequestParam int b, @RequestParam String email) {
+        if (!email.matches("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
+            return ResponseEntity.badRequest().body("Invalid email address");
+        }
         int result = a + b;
         System.out.println("Sum: " + a + "+" + b + "=" + result);
         return ResponseEntity.ok("I have sent €" + result + " to this email: " + email);
     }
-    //             the third should be in email formait
-    //             create a custom validator for email
-    // }
 }
