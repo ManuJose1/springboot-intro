@@ -2,6 +2,7 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Models.Item;
 import com.example.demo.Service.ItemService;
+import com.example.demo.Validation.EmailValidator;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class ItemController {
     
     private final ItemService itemService;
+    private final EmailValidator emailValidator = new EmailValidator();
 
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
@@ -69,7 +71,7 @@ public class ItemController {
 
     @GetMapping("/sumandemail")
     public ResponseEntity<String> sumandemail(@RequestParam int a, @RequestParam int b, @RequestParam String email) {
-        if (!email.matches("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
+        if (!emailValidator.isValid(email, null)) {
             return ResponseEntity.badRequest().body("Invalid email address");
         }
         int result = a + b;
