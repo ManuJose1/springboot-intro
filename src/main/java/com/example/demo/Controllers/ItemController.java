@@ -67,7 +67,7 @@ public class ItemController {
         return ResponseEntity.ok(result);
     }
 
-    @GetMapping("sumandemail")
+    @GetMapping("/sumandemail")
     public ResponseEntity<String> sumandemail(@RequestParam int a, @RequestParam int b, @RequestParam String email) {
         if (!email.matches("^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
             return ResponseEntity.badRequest().body("Invalid email address");
